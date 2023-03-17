@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth/next";
 import SessionProvider from "../components/SessionProvider";
 import { authOptions } from "../pages/api/auth/[...nextauth]";
 import Login from "../components/Login";
+import ClientProvider from "../components/ClientProvider";
 
 // server = async
 // client = sync
@@ -13,7 +14,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
-  console.log(session)
+  console.log(session);
 
   return (
     <html>
@@ -29,6 +30,8 @@ export default async function RootLayout({
                 <Sidebar />
               </div>
               {/* client provider */}
+              <ClientProvider />
+
               <div className="bg-[#343541] flex-1">{children}</div>
             </div>
           )}

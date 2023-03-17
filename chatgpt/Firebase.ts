@@ -13,9 +13,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-// array of all initialized apps
+
+// const app = initializeApp(firebaseConfig)
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 export { db };
